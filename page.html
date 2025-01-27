@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Example</title>
+    <style>
+        body {
+            height: 2000px; /* To enable scrolling */
+        }
+        #scrollButton {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 20px;
+            left: 200px;
+        }
+        #output {
+            position: fixed;
+            margin-top: 100px;
+            padding: 10px;
+            border: 1px solid #000;
+        }
+        #scrollHere {
+            bottom: 100px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <button data-test-id='buttonTest' id="visibleButton">Click Me</button>
+    <button data-test-id='buttonTest' id="scrollButton">Scroll Button</button>
+    <div id="output"></div>
+
+
+    <script>
+        window.onscroll = function() {
+            var scrollButton = document.getElementById("scrollButton");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollButton.style.display = "block";
+            } else {
+                scrollButton.style.display = "none";
+            }
+        };
+        document.getElementById("scrollButton").onclick = function() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "Scroll Button clicked!";
+            outputDiv.style.backgroundColor = "red";
+        }; 
+        document.getElementById("visibleButton").onclick = function() {
+            var outputDiv = document.getElementById("output");
+            outputDiv.innerHTML = "visibleButton clicked!";
+            outputDiv.style.backgroundColor = "green";
+        };
+    </script>
+    <div style="height: 1800px;"></div> <!-- Spacer to push the button to the bottom -->
+    <button id="scrollHere">scrollHere</div>
+
+</body>
+</html>
