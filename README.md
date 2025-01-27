@@ -19,7 +19,7 @@ Steps to reproduce
           - element is not visible
     ```
 - Now go back to playwright version 1.49 and run again
-  - npm uninstall @playwright/test
-  - npm install @playwright/test@1.49.0
-  - npx playwright test
+  - `npm uninstall @playwright/test`
+  - `npm install @playwright/test@1.49.0`
+  - `npx playwright test`
 - Test works fine and clicks the correct visible button
